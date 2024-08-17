@@ -27,6 +27,11 @@ app.use(
   async function run() {
     try{
         const productCollection = client.db("productsDB").collection("products");
+
+        app.get('/', async (req,res) => {
+            const result = await productCollection.find().toArray();
+            return res.send(result)
+        })
     }
     finally{
 
