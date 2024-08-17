@@ -31,6 +31,7 @@ app.use(
         app.get('/', async (req,res) => {
             const { page = 1, limit = 8, search = '' } = req.query;
             const skip = (page - 1) * limit;
+            const searchRegex = new RegExp(search, 'i');
 
             try{
                 const [products, totalProducts] = await Promise.all([
