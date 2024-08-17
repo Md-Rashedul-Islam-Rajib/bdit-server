@@ -40,6 +40,12 @@ app.use(
                 ])
 
                 const totalPages = Math.ceil(totalProducts / limit);
+
+                res.json({
+                    products,
+                    totalPages,
+                    currentPage: page,
+                  });
             }
             // const result = await productCollection.find().toArray();
             // return res.send(result)
