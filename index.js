@@ -23,3 +23,13 @@ app.use(
       deprecationErrors: true,
     },
   });
+
+  async function run() {
+    try{
+
+    }
+    finally{
+
+    }
+  }
+  run().catch(console.dir);
