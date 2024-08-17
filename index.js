@@ -46,7 +46,10 @@ app.use(
                     totalPages,
                     currentPage: page,
                   });
-            }
+            } catch (error){
+                
+            };
+            )
             // const result = await productCollection.find().toArray();
             // return res.send(result)
         })
