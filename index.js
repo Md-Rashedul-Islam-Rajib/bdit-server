@@ -38,6 +38,8 @@ app.use(
                     productCollection.find().skip(skip).limit(limit).toArray(),
                     productCollection.countDocuments()
                 ])
+
+                const totalPages = Math.ceil(totalProducts / limit);
             }
             // const result = await productCollection.find().toArray();
             // return res.send(result)
