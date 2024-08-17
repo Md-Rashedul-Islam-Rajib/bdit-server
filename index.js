@@ -13,3 +13,5 @@ app.use(
     })
   );
   app.use(express.json());
+
+  const uri = "mongodb+srv://<username>:<password>@artstore.tattjrs.mongodb.net/?retryWrites=true&w=majority&appName=ArtStore";
