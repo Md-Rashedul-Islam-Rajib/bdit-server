@@ -26,7 +26,7 @@ app.use(
 
   async function run() {
     try{
-
+        const productCollection = client.db("productsDB").collection("products");
     }
     finally{
 
