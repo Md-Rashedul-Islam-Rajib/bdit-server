@@ -49,7 +49,7 @@ app.use(
             } catch (error){
                 res.status(500).json({ error: 'Internal server error' });
             };
-            )
+            
             // const result = await productCollection.find().toArray();
             // return res.send(result)
         })
