@@ -37,3 +37,8 @@ app.use(
   app.get("/", (req, res) => {
     res.send("server running ");
   });
+
+  app.listen(port, () => {
+    console.log(`server running from ${port}`);
+  });
+  
