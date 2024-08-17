@@ -36,6 +36,7 @@ app.use(
             try{
                 const [products, totalProducts] = await Promise.all([
                     productCollection.find().skip(skip).limit(limit).toArray(),
+                    productCollection.countDocuments()
                 ])
             }
             // const result = await productCollection.find().toArray();
