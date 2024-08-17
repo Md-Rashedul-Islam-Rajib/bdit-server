@@ -29,8 +29,7 @@ app.use(
         const productCollection = client.db("productsDB").collection("products");
 
         app.get('/', async (req,res) => {
-            const page = parseInt(req.query.page) || 1;
-            const limit = parseInt(req.query.limit) || 8;
+            const { page = 1, limit = 8, search = '' } = req.query;
             const skip = (page - 1) * limit;
 
             try{
