@@ -36,7 +36,7 @@ app.use(
             try{
                 const [products, totalProducts] = await Promise.all([
                     productCollection.find({ name: searchRegex }).skip(skip).limit(parseInt(limit)).toArray(),
-                    productCollection.countDocuments()
+                    productCollection.countDocuments({ name: searchRegex })
                 ])
 
                 const totalPages = Math.ceil(totalProducts / limit);
