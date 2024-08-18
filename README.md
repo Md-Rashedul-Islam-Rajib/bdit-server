@@ -2,7 +2,7 @@
 
 ## Overview
 
-The BDIT server is a RESTful service built with Node.js, Express, TScript, and MongoDB (ODM: Mongoose) that provides a robust backend for managing products, users, and shopping carts. This API supports user authentication, product management, cart operations, and more.
+The BDIT server is a RESTful service built with Node.js, Express, JavaScript, and MongoDB that provides a robust backend for managing products, users, and shopping carts. This API supports user authentication, product management, cart operations, and more.
 
 ## Features
 
