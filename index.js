@@ -5,11 +5,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@artstore.tattjrs.mongodb.net/?retryWrites=true&w=majority&appName=ArtStore`;
@@ -27,7 +23,16 @@ async function run() {
     const productCollection = client.db("productsDB").collection("products");
 
     app.get("/", async (req, res) => {
-      const { page = 1, limit = 8, search = "", sort, brand,price,category,maxPrice,minPrice } = req.query;
+      const {
+        page = 1,
+        limit = 8,
+        search,
+        sort,
+        brand,
+        category,
+        maxPrice,
+        minPrice,
+      } = req.query;
       const skip = (page - 1) * limit;
 
       let filter = {};
@@ -39,23 +44,23 @@ async function run() {
       // Filter by brand
       if (brand && brand.length) {
         filter.brand = brand;
-    }
+      }
 
-    // Filter by category
-    if (category && category.length) {
+      // Filter by category
+      if (category && category.length) {
         filter.category = category;
-    }
+      }
 
-    // Filter by price range
-    if (minPrice || maxPrice) {
+      // Filter by price range
+      if (minPrice || maxPrice) {
         filter.price = {};
         if (minPrice) {
-            filter.price.$gte = parseInt(minPrice);
+          filter.price.$gte = parseInt(minPrice);
         }
         if (maxPrice) {
-            filter.price.$lte = parseInt(maxPrice);
+          filter.price.$lte = parseInt(maxPrice);
         }
-    }
+      }
 
       let sortBy = {};
       switch (sort) {
@@ -91,7 +96,7 @@ async function run() {
         res.json({
           products,
           totalPages,
-          currentPage: page,
+          currentPage: parseInt(page),
         });
       } catch (error) {
         res.status(500).json({ error: "Internal server error" });
@@ -100,9 +105,9 @@ async function run() {
       // const result = await productCollection.find().toArray();
       // return res.send(result)
     });
-  } finally {
-  }
-}
+  }  catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }}
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
