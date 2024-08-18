@@ -23,7 +23,7 @@ The BDIT server is a RESTful service built with Node.js, Express, JavaScript, an
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/nazmul-nhb/prodigy-picks-server
+    git clone https://github.com/Md-Rashedul-Islam-Rajib/bdit-server.git
     ```
 
 2. **Navigate to the project directory**:
