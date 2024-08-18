@@ -29,7 +29,7 @@ The BDIT server is a RESTful service built with Node.js, Express, JavaScript, an
 2. **Navigate to the project directory**:
 
     ```bash
-    cd prodigy-picks-api
+    cd bdit-server
     ```
 
 3. **Install dependencies**:
