@@ -1,4 +1,4 @@
-# Prodigy Picks API
+# BDIT SERVER
 
 ## Overview
 
